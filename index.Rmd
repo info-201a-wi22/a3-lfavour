@@ -1,0 +1,43 @@
+---
+title: "Race Distributions in Prisons Throughout the United States"
+author: "Lilah Favour"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include=FALSE}
+library("knitr")
+source("analysis.R")
+```
+
+## Introduction
+The incarceration data set created by Vera Institute presents information on the demographics of jails and prisons throughout counties in the United States from as early 1970 to 2018. There is data about the distribution of race throughout different types of incarceration as well as distribution of gender. Although there was data for jail and juvenile detention I decided to focus my analysis on the prison population because people in prison are subjected to the longest sentences. Jail is for people awaiting trial while prison is for people who have already been convicted. I narrowed down the years I focused on to 2000 through 2015 because there was a significant amount of data missing in earlier years and years after 2015 for many of the columns. Race has long been one of the most controversial topics regarding incarceration so I decided to focus most of my analysis on that. I focused on the columns containing information on the 6 categories of race identified in the data set: Asian or Pacific Islander(AAPI), Black, Latinx, Native American, White, and Other. I compared these values to each other and the total population.
+
+## Summary Information
+To summarize the data I began by finding the total number of people in each race category in prison in 2000 and 2015. I found that, across all counties, there were a total of 4841 people considered to be Asian or Pacific Islander, 7677 Native Americans, 112297 Latinx people, 280734 White people, 377525 Black people and 7117 people identified as Other in prison in 2000. In 2015 there were 7856 Asian or Pacific Islanders, 12643 Native Americans, 182027 Latinx, 429037 White, 428963 Black and 11453 Other people in prison. To compare, there was about a 60% increase in AAPI, Native American, Latinx, and Others in prison from 2000 to 2015, a 52% increase in White people and only a 13% increase in Black people in prison between 2000 and 2015. For every year between 2000 and 2015, Black people were consistently the highest population of people in prison, except for 2015, where White people slightly overtook them. This is especially concerning because, as I demonstrate later in my report, Black people only make up **12-13%** of the total population, but between **35-40%** of the prison population. 
+
+## Trending Over Time
+```{r, echo=FALSE}
+time_plot
+```
+
+I included this chart because it illustrates the trends in the racial makeup of prison populations from 2000 to 2015. The race groups of AAPI, Native, and Other show very similar, steady trends and no significant increase in population. However, there is a much stronger increase in Black and Latinx prison populations, and especially in White prison populations. There are three clearly dominant racial groups in the prison system but they are at proportions that are not representative of the general population. 
+
+## Comparing Proportion of Black People in Prison and the General Population 
+```{r, echo=FALSE}
+black_pop_plot
+```
+
+This chart is created to illustrate the stark contrast in the proportion of Black people in the prison system versus the general population. I decided to create this chart after looking at the numbers from my summary paragraph and the first chart. Despite not being the majority race in the United States, Black people were at the top of everything I calculated in regards to the prison system. If the proportions in the prison population matched the proportions in the total population, this chart would have a slope of 1 and the regression line would go perfectly from bottom left corner to top right corner. However if you look at the x-axis, there is very little growth in the percent of Black people in the total population and much more growth in the percentage of the prison population. This clearly demonstrates the much higher proportion of Black people in the prison system. The chart is also colored by year to illustrate how these two variables have increased pretty consistently over time.
+
+## Proportions of Black People in Prison in Washington
+```{r, echo=FALSE}
+wa_ratio_map
+```
+
+I created this map to focus just on Washington because anything graphed by county on a map of the United States was very hard to see since counties are very small in certain areas. I wanted to visualize the information from chart 2 geographically because I suspected there would be higher ratios in certain counties than others. Lighter colors on this map mean a higher proportion of Black people in prison compared to the general population. Darker colors mean the proportion of Black people in prison is closer to the proportion in the general population. The trend shown is consistently higher proportions of Black people incarcerated in counties that are more populated. Although this could be due to a higher amount of prisons in these areas, more populated areas are also more diverse so it is interesting that the greater diversity does not compete with the high prison proportions. 
+
